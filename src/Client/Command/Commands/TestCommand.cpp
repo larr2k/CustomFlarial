@@ -1,5 +1,4 @@
 #include "TestCommand.hpp"
-
 #include <Utils/WinrtUtils.hpp>
 
 void TestCommand::execute(const std::vector<std::string> &args) {
@@ -11,7 +10,7 @@ void TestCommand::execute(const std::vector<std::string> &args) {
     const std::string action = String::toLower(args[0]);
 
     if (action == "uri") {
-        WinrtUtils::launchURI("https://flarial.xyz");
+        WinrtUtils::launchURI("https://google.com");
     }
     if (action == "pick") {
         WinrtUtils::pickFiles();

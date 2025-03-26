@@ -468,7 +468,7 @@ void SwapchainHook::DX11Render() {
                             "Click " + ModuleManager::getModule("ClickGUI")->settings.getSettingByName<std::string>(
                                     "keybind")->value + " to open the menu in-game.");
 
-                    FlarialGUI::Notify("Join our discord! https://flarial.xyz/discord");
+                    FlarialGUI::Notify("CustomFlarial on top!");
                     first = true;
                 }
 
@@ -599,7 +599,7 @@ void SwapchainHook::DX12Render() {
                     FlarialGUI::Notify(
                             "Click " + ModuleManager::getModule("ClickGUI")->settings.getSettingByName<std::string>(
                                     "keybind")->value + " to open the menu in-game.");
-                    FlarialGUI::Notify("Join our discord! https://flarial.xyz/discord");
+                    FlarialGUI::Notify("CustomFlarial on top!");
                     first = true;
                 }
 
