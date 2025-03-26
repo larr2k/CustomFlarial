@@ -4,6 +4,30 @@
 #include <Utils/Logger/Logger.hpp>
 #include <Utils/Memory/Game/SignatureAndOffsetManager.hpp>
 
+void OffsetInit::init2170() {
+    Logger::custom(fg(fmt::color::golden_rod), "Offsets", "Loading offsets for 1.21.7X");
+    ADD_OFFSET("ClientInstance::camera", 0x2C8);
+    ADD_OFFSET("ClientInstance::viewMatrix", 0x388);
+    ADD_OFFSET("ClientInstance::guiData", 0x5B0);
+    ADD_OFFSET("ClientInstance::getFovX", 0x748);
+    ADD_OFFSET("ClientInstance::getFovY", 0x75C);
+    ADD_OFFSET("ClientInstance::guiData", 0x5B0);
+
+    ADD_OFFSET("mce::Camera::worldMatrixStack", 0x40);
+
+    ADD_OFFSET("MinecraftGame::textureGroup", 0x6C0);
+
+    ADD_OFFSET("Player::gamemode", 0xAD0);
+    ADD_OFFSET("Player::playerName", 0xC50);
+    ADD_OFFSET("Player::playerInventory", 0x5C0);
+
+    ADD_OFFSET("Level::hitResult", 0x240);
+    ADD_OFFSET("Level::worldFolderName", 0x2B0);
+    ADD_OFFSET("Level::getPlayerMap", 0xB98);
+
+    ADD_OFFSET("LevelRendererPlayer::cameraPos", 0x65C);
+}
+
 void OffsetInit::init2160() {
     Logger::custom(fg(fmt::color::golden_rod), "Offsets", "Loading offsets for 1.21.6X");
     ADD_OFFSET("Player::gamemode", 0xAD8);
@@ -85,6 +109,8 @@ void OffsetInit::init2140() {
 
     ADD_OFFSET("RaknetConnector::getPeer", 0x2A0);
     ADD_OFFSET("RaknetConnector::JoinedIp", 0x398);
+    ADD_OFFSET("RaknetConnector::port", 0x3B8);
+
 
     ADD_OFFSET("LevelRender::getLevelRendererPlayer", 0x318);
     ADD_OFFSET("LevelRendererPlayer::cameraPos", 0x620);
@@ -123,6 +149,8 @@ void OffsetInit::init2130() {
     ADD_OFFSET("MoveInputComponent::left", 0x2E);
     ADD_OFFSET("MoveInputComponent::right", 0x2F);
 
+    ADD_OFFSET("RaknetConnector::port", 0x3B0);
+
     // 48 8B ? ? ? ? ? EB ? 48 8B ? ? ? ? ? FF 15 ? ? ? ? 44 8B ? ? 48 8B
     ADD_OFFSET("ContainerScreenController::_handlePlaceAll", 56);
 }
@@ -150,6 +178,7 @@ void OffsetInit::init2120() {
     ADD_OFFSET("UIControl::components", 0xB0);
 
     ADD_OFFSET("RaknetConnector::JoinedIp", 0x390);
+    ADD_OFFSET("RaknetConnector::port", 0x3B0);
 
     ADD_OFFSET("Level::hitResult", 0x220);
     ADD_OFFSET("Level::worldFolderName", 0x290);
@@ -295,6 +324,7 @@ void OffsetInit::init2050() {
     ADD_OFFSET("OptionInfo::TranslateName", 0x158);
 
     ADD_OFFSET("AttributeInstance::Value", 0x84);
+    ADD_OFFSET("RaknetConnector::port", 0x478);
 }
 
 void OffsetInit::init2040() {
@@ -322,6 +352,7 @@ void OffsetInit::init2040() {
     ADD_OFFSET("Attribute::Hunger", 2);
     ADD_OFFSET("Attribute::Saturation", 3);
     ADD_OFFSET("Attribute::Health", 7);
+    ADD_OFFSET("RaknetConnector::port", 0x478);
 }
 
 void OffsetInit::init2030() {
@@ -334,7 +365,7 @@ void OffsetInit::init2030() {
     ADD_OFFSET("MoveInputComponent::sneaking", 0x20);
     ADD_OFFSET("MoveInputComponent::jumping", 0x26);
     ADD_OFFSET("MoveInputComponent::sprinting", 0x27);
-
+    ADD_OFFSET("RaknetConnector::port", 0x478);
     // Hitboxes and other
     ADD_OFFSET("Actor::getActorFlag", 0);
 

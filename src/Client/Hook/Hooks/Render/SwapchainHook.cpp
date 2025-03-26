@@ -94,6 +94,7 @@ HWND FindWindowByTitle(const std::string &titlePart) {
 
 void SwapchainHook::enableHook() {
 
+    queueReset = Client::settings.getSettingByName<bool>("recreateAtStart")->value;
 
     if (!window) {
         window = FindWindowByTitle("Minecraft");
@@ -138,8 +139,8 @@ void SwapchainHook::enableHook() {
 
     if (isRTSS) {
         // if(!unloadDll(L"RTSSHooks64.dll")) { // causes a crash sometimes
-        // Logger::debug("[Swapchain] MSI Afterburner failed to unload!");
-        MessageBox(NULL, "Flarial: client failed to initialize, disable MSI Afterburner!", "", MB_OK);
+        Logger::debug("[Swapchain] MSI Afterburner failed to unload!");
+        Utils::MessageDialogW(L"Flarial: client failed to initialize, disable MSI Afterburner or RTSS!", L"Error!");
         ModuleManager::terminate();
         Client::disable = true;
         // }
@@ -328,6 +329,7 @@ void SwapchainHook::DX11Init() {
     //SaveBackbuffer();
 
     Blur::InitializePipeline();
+    MotionBlur::initted = MotionBlurHelper::Initialize();
     Memory::SafeRelease(eBackBuffer);
     init = true;
 }

@@ -148,7 +148,7 @@ void Client::initialize() {
 
     if (!VersionUtils::isSupported(Client::version)) {
         Logger::fatal("Minecraft version is not supported!");
-        MessageBox(nullptr, "Flarial: this version is not supported!", "", MB_OK);
+        Utils::MessageDialogW(L"Flarial: this version is not supported!", L"VERSION NOT SUPPORTED!");
         ModuleManager::terminate();
         Client::disable = true;
         return;
@@ -214,7 +214,9 @@ void Client::initialize() {
     ADD_SETTING("killdx", false);
     ADD_SETTING("disable_alias", false);
     ADD_SETTING("vsync", false);
+    ADD_SETTING("recreateAtStart", true);
     ADD_SETTING("promotions", true);
+    ADD_SETTING("snappinglines", true);
     ADD_SETTING("apiusage", true);
     ADD_SETTING("donotwait", true);
     ADD_SETTING("bufferingmode", std::string("Double Buffering"));
